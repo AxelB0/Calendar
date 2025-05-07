@@ -1,0 +1,44 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f4f4f4;
+}
+
+.month{
+
+}
+
+.calendar{
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: auto repeat(6, 1fr);
+    gap: 10px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.row {
+    display: contents;
+}
+
+.day {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    font-size: 16px;
+}
+
+.day:nth-child(5) {
+    background-color: #f2f2f2;
+}
+
+.day:hover {
+    background-color: #e0e0e0;
+    cursor: pointer;
+}
