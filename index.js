@@ -2,18 +2,18 @@ console.log('Happy developing ✨')
 
 const months = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
 let currentDay = 8;
-let firstDayName = 3;
+let firstDayName = 6;
 let currentMonth = 4;
 let currentYear = 2025;
 
 
 function fillInTheDays() {
-    for (let i = 0; i <= monthLengthChecker(currentMonth); i++) {
+    for (let i = 0; i <= monthLengthChecker(currentMonth)-1;) {
         let dayName = "day"
-        dayName += i;
-        document.getElementById()
 
-
+        dayName += firstDayName+1+i;
+        console.log(dayName);
+        document.getElementById(dayName).textContent = i+++1 ;
 
     }
 
@@ -32,4 +32,5 @@ function monthLengthChecker(month) {
 
 }
 
+fillInTheDays();
 
