@@ -17,6 +17,10 @@ main {
 
 }
 
+.button-row {
+    display: flex;
+    gap: 10px;
+}
 
 .calendar {
     display: grid;
@@ -33,7 +37,7 @@ main {
     display: contents;
 }
 
-.day {
+.day, .dayHead {
     display: flex;
     justify-content: center;
     align-items: center;

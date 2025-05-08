@@ -1,19 +1,20 @@
 console.log('Happy developing ✨')
 
 const months = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
-let currentDay = 8;
-let firstDayName = 6;
+let firstDayName = 3;
 let currentMonth = 4;
 let currentYear = 2025;
+const buttonBack = document.getElementById("btn__back");
+const buttonNext = document.getElementById("btn__forward");
 
 
 function fillInTheDays() {
-    for (let i = 0; i <= monthLengthChecker(currentMonth)-1;) {
+    document.getElementById("month").textContent = months[currentMonth];
+    for (let i = 0; i <= monthLengthChecker(currentMonth) - 1;) {
         let dayName = "day"
 
-        dayName += firstDayName+1+i;
-        console.log(dayName);
-        document.getElementById(dayName).textContent = i+++1 ;
+        dayName += firstDayName + 1 + i;
+        document.getElementById(dayName).textContent = i++ + 1;
 
     }
 
@@ -31,6 +32,38 @@ function monthLengthChecker(month) {
 
 
 }
+
+function clearNumbers(){
+    for (const i of document.getElementsByClassName("day")) {
+        i.textContent = "";
+    }
+
+}
+
+buttonBack.addEventListener("click", () => {
+
+    if (currentMonth === 0) {
+        currentMonth = 11;
+    } else {
+        currentMonth--;
+    }
+    firstDayName = (7+((firstDayName - monthLengthChecker(currentMonth))%-7));
+    console.log(firstDayName);
+    clearNumbers();
+    fillInTheDays();
+
+})
+
+buttonNext.addEventListener("click", () => {
+    firstDayName = (firstDayName + monthLengthChecker(currentMonth))%7;
+    if (currentMonth === 11) {
+        currentMonth = 0;
+    } else {
+        currentMonth++;
+    }
+    clearNumbers();
+    fillInTheDays();
+})
 
 fillInTheDays();
 
