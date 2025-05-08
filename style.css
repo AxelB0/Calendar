@@ -1,23 +1,35 @@
-body{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+body {
     height: 100vh;
     margin: 0;
     background-color: #f4f4f4;
 }
 
-.month{
+.month {
+    justify-content: center;
+    display: block;
+    text-align: center;
+    font-size: 30px;
+    font-weight: 600;
 
 }
 
-.calendar{
+main {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    vertical-align: middle;
+}
+
+
+.calendar {
     display: grid;
+    align-items: center;
     grid-template-columns: repeat(7, 1fr);
     grid-template-rows: auto repeat(6, 1fr);
-    gap: 10px;
     max-width: 900px;
     margin: 0 auto;
+    gap: 10px;
+
 }
 
 .row {
