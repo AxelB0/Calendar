@@ -20,6 +20,16 @@ function fillInTheDays() {
 
 }
 
+function generateCalendar() {
+    const calendar = document.querySelector('.calendar');
+    for (let i = 1; i <= 42; i++) {
+        const day = document.createElement('div');
+        day.className = 'day';
+        day.id = `day${i}`;
+        calendar.appendChild(day);
+    }
+}
+
 function monthLengthChecker(month) {
     if (month === 1) {
         return 28;
@@ -33,7 +43,7 @@ function monthLengthChecker(month) {
 
 }
 
-function clearNumbers(){
+function clearNumbers() {
     for (const i of document.getElementsByClassName("day")) {
         i.textContent = "";
     }
@@ -47,7 +57,10 @@ buttonBack.addEventListener("click", () => {
     } else {
         currentMonth--;
     }
-    firstDayName = (7+((firstDayName - monthLengthChecker(currentMonth))%-7));
+    firstDayName = (7 + ((firstDayName - monthLengthChecker(currentMonth)) % -7));
+    if (firstDayName === 7) {
+        firstDayName = 0;
+    }
     console.log(firstDayName);
     clearNumbers();
     fillInTheDays();
@@ -55,7 +68,7 @@ buttonBack.addEventListener("click", () => {
 })
 
 buttonNext.addEventListener("click", () => {
-    firstDayName = (firstDayName + monthLengthChecker(currentMonth))%7;
+    firstDayName = (firstDayName + monthLengthChecker(currentMonth)) % 7;
     if (currentMonth === 11) {
         currentMonth = 0;
     } else {
@@ -65,5 +78,7 @@ buttonNext.addEventListener("click", () => {
     fillInTheDays();
 })
 
+
+generateCalendar();
 fillInTheDays();
 
